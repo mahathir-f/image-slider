@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #f1f4fd;
+}
+.container{
+    max-width: 1200px;
+    width: 95%;
+}
+.slider-wrapper{
+    position: relative;
+}
+.slider-wrapper .icon{
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    background: rgba(0,0,0,0.2);
+    border: none;
+    outline: none;
+    font-size: 2,2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+.slider-wrapper .icon#back-arrow{
+    left: -30px;
+   
+}
+.slider-wrapper .icon#right-arrow{
+    right:-30px ;
+   
+}
+
+.slider-wrapper .icon:hover{
+    background: rgba(0,0,0,0.3);
+}
+.slider-wrapper .image-list{
+    display: grid;
+    font-size: 0;
+    margin-bottom: 30px;
+    overflow-y:  auto;
+    scrollbar-width: none;
+    gap: 18px;
+    grid-template-columns: repeat(10,1fr);
+    cursor: pointer;
+}
+.slider-wrapper .image-list::-webkit-scrollbar{
+    display: none;
+}
+.slider-wrapper .image-list .image-items{
+    width: 325px;
+    height: 400px;
+    object-fit: cover;
+}
+.container .slider-bar{
+    height: 24px;
+    width: 100%;
+   display: flex;
+   align-items: center;
+}
+.slider-bar .scrollbar-track{
+    height: 2px;
+    width: 100%;
+    background: #fff;
+    position: relative;
+    border-radius: 4px;
+}
+.slider-bar:hover .scrollbar-track{
+    height: 4px;
+}
+.slider-bar .scrollbar-thumb{
+    position: absolute;
+    height: 100%;
+    width: 30%;
+    background: #000;
+    border-radius: inherit;
+    cursor: grab;
+}
+
+.slider-bar .scrollbar-track:active{
+    cursor: grabbing;
+    height: 8px;
+    top: -2px;
+}
+
+.slider-bar .scrollbar-thumb::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    bottom: -10px;
+}
+@media (max-width:850px){
+    .slider-wrapper .icon{
+        display: none!important;
+    }
+    .slider-wrapper .image-list{
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    .slider-wrapper .image-list .image-items{
+        width: 280px;
+        height: 380px;
+        object-fit: cover;
+
+    }
+    .slider-bar .scrollbar-thumb{
+        width: 10%;
+    }
+}
